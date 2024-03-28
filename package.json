@@ -1,0 +1,9 @@
+{
+  "name": "xcoap",
+  "version": "0.0.1",
+  "description": "A All-in-One COAP client toolbox for Desktop.",
+  "main": "main.js",
+  "repository": "https://github.com/jojo-joo/xcoap",
+  "author": "jojo-joo",
+  "license": "MIT"
+}
