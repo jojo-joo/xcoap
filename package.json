@@ -3,7 +3,14 @@
   "version": "0.0.1",
   "description": "A All-in-One COAP client toolbox for Desktop.",
   "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": "https://github.com/jojo-joo/xcoap",
   "author": "jojo-joo",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^29.1.6"
+  }
 }
