@@ -2,11 +2,11 @@
   <div class="common-layout">
     <el-container>
       <el-aside class="side" width="collapse">
-        <SideBar ref="narbar" />
+        <SideBar />
       </el-aside>
       <el-container>
-        <el-header height="125px">
-          <HeaderBar ref="headerContent" @updateNarBar="updateNarBar" />
+        <el-header>
+          <HeaderBar/>
         </el-header>
         <el-main>
           <router-view />
@@ -16,15 +16,8 @@
   </div>
 </template>
 <script setup>
-import SideBar from './views/SideBar.vue';
-import HeaderBar from './views/HeaderBar.vue';
-import { ref } from 'vue';
-const narbar = ref(null);
-
-const updateNarBar = () => {
-  narbar.value.isCollapse = !narbar.value.isCollapse;
-}
-
+import SideBar from '@/views/SideBar.vue';
+import HeaderBar from '@/views/HeaderBar.vue';
 </script>
 
 <style lang="scss">
