@@ -2,7 +2,7 @@
     <div class="header_toolbars">
              <el-icon  class="closeMenu left" :size="16" 
              @click="$emit('updateNarBar')"><Fold /></el-icon>
-             <span class="welcome left" >欢迎进入图书借阅系统</span>
+             <span class="welcome left" >All-in-One Coap Client</span>
              <!-- <el-icon  class="setting right"
          ><setting/></el-icon> -->
      </div>
