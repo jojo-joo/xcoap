@@ -5,13 +5,14 @@
     </el-aside>
     
     <el-main>
-      <div style="padding: 20px;">右边内容</div>
+      <ChatList />
     </el-main>
   </el-container>
 </template>
 
 <script setup>
 import EndPointList from '@/views/EndPointList.vue';
+import ChatList from '@/views/ChatList.vue';
 </script>
 
 <style>
