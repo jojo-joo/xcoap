@@ -2,9 +2,6 @@
   <el-menu
     default-active="2"
     class="el-menu-vertical"
-    :collapse="isCollapse"
-    @open="handleOpen"
-    @close="handleClose"
   >
     <router-link to="/" class="router-link-no-underline titleName">
       <el-menu-item index="1">

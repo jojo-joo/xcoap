@@ -6,9 +6,7 @@
       </el-aside>
       <el-container>
         <el-header height="125px">
-          <el-card class="box-card">
-            <HeaderContent ref="headerContent" @updateNarBar="updateNarBar" />
-          </el-card>
+          <HeaderContent ref="headerContent" @updateNarBar="updateNarBar" />
         </el-header>
         <el-main>
           <router-view />
