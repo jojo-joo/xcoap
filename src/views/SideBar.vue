@@ -12,22 +12,36 @@
 
     <router-link to="/endpoint" class="router-link-no-underline menu">
       <el-menu-item index="2">
-        <el-icon><Connection /></el-icon>
+        <el-icon class="iconfont icon-connections"/>
         <span>Endpoint</span>
       </el-menu-item>
     </router-link>
-
-    <router-link to="/about" class="router-link-no-underline menu">
+    
+    <router-link to="/discovery" class="router-link-no-underline menu">
       <el-menu-item index="3">
-        <el-icon><Management /></el-icon>
-        <span>About</span>
+        <el-icon class="iconfont icon-search"/>
+        <span>Discovery</span>
+      </el-menu-item>
+    </router-link>
+
+    <router-link to="/log" class="router-link-no-underline menu">
+      <el-menu-item index="4">
+        <el-icon class="iconfont icon-log"/>
+        <span>Log</span>
       </el-menu-item>
     </router-link>
     
     <router-link to="/settings" class="router-link-no-underline menu">
-      <el-menu-item index="4">
+      <el-menu-item index="5">
         <el-icon><Setting /></el-icon>
         <span>Settings</span>
+      </el-menu-item>
+    </router-link>
+
+    <router-link to="/about" class="router-link-no-underline menu">
+      <el-menu-item index="6">
+        <el-icon class="iconfont icon-about"/>
+        <span>About</span>
       </el-menu-item>
     </router-link>
   </el-menu>

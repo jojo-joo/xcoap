@@ -1,0 +1,231 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 1257443 */
+  src: url('iconfont.woff2?t=1711556341747') format('woff2'),
+       url('iconfont.woff?t=1711556341747') format('woff'),
+       url('iconfont.ttf?t=1711556341747') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-save:before {
+  content: "\e802";
+}
+
+.icon-create-new:before {
+  content: "\e7fa";
+}
+
+.icon-x:before {
+  content: "\e801";
+}
+
+.icon-more:before {
+  content: "\e7e1";
+}
+
+.icon-new:before {
+  content: "\e7e5";
+}
+
+.icon-stop-timing:before {
+  content: "\e7ec";
+}
+
+.icon-stop-script:before {
+  content: "\e7f6";
+}
+
+.icon-script:before {
+  content: "\e7f3";
+}
+
+.icon-log:before {
+  content: "\e7ed";
+}
+
+.icon-viewer:before {
+  content: "\e7fc";
+}
+
+.icon-backup:before {
+  content: "\e7f1";
+}
+
+.icon-bytes-statistics:before {
+  content: "\e7f2";
+}
+
+.icon-import-data:before {
+  content: "\e7f4";
+}
+
+.icon-about:before {
+  content: "\e7f5";
+}
+
+.icon-edit:before {
+  content: "\e7f7";
+}
+
+.icon-copy:before {
+  content: "\e7f8";
+}
+
+.icon-connections:before {
+  content: "\e7f9";
+}
+
+.icon-refresh:before {
+  content: "\e7fb";
+}
+
+.icon-collapse:before {
+  content: "\e7fd";
+}
+
+.icon-chat:before {
+  content: "\e7fe";
+}
+
+.icon-disconnect:before {
+  content: "\e7ff";
+}
+
+.icon-hide-connections:before {
+  content: "\e800";
+}
+
+.icon-help:before {
+  content: "\e7e2";
+}
+
+.icon-timed-message:before {
+  content: "\e7e3";
+}
+
+.icon-use-script:before {
+  content: "\e7e4";
+}
+
+.icon-new-window:before {
+  content: "\e7e6";
+}
+
+.icon-delete:before {
+  content: "\e7e7";
+}
+
+.icon-send:before {
+  content: "\e7e8";
+}
+
+.icon-clear-history:before {
+  content: "\e7e9";
+}
+
+.icon-export-data:before {
+  content: "\e7ea";
+}
+
+.icon-frame:before {
+  content: "\e7eb";
+}
+
+.icon-down:before {
+  content: "\e7ee";
+}
+
+.icon-right:before {
+  content: "\e7ef";
+}
+
+.icon-left:before {
+  content: "\e7f0";
+}
+
+.icon-run-script:before {
+  content: "\e7db";
+}
+
+.icon-middle:before {
+  content: "\e7dc";
+}
+
+.icon-settings:before {
+  content: "\e7dd";
+}
+
+.icon-show-connections:before {
+  content: "\e7da";
+}
+
+.icon-website:before {
+  content: "\e7de";
+}
+
+.icon-search:before {
+  content: "\e7df";
+}
+
+.icon-mqtt:before {
+  content: "\e79a";
+}
+
+.icon-github:before {
+  content: "\e75b";
+}
+
+.icon-faq:before {
+  content: "\e759";
+}
+
+.icon-discord:before {
+  content: "\e66e";
+}
+
+.icon-cloud-logo:before {
+  content: "\e602";
+}
+
+.icon-language:before {
+  content: "\e61b";
+}
+
+.icon-youtube:before {
+  content: "\e612";
+}
+
+.icon-linkedin:before {
+  content: "\e601";
+}
+
+.icon-fold:before {
+  content: "\e6d9";
+}
+
+.icon-unfold:before {
+  content: "\e6da";
+}
+
+.icon-qq:before {
+  content: "\e615";
+}
+
+.icon-weibo:before {
+  content: "\e73a";
+}
+
+.icon-wechat:before {
+  content: "\e70e";
+}
+
+.icon-slack:before {
+  content: "\e641";
+}
+

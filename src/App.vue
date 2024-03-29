@@ -27,9 +27,6 @@ const updateNarBar = () => {
 
 </script>
 
-<style>
-* {
-  padding: 0%;
-  margin: 0%;
-}
+<style lang="scss">
+@import './assets/font/iconfont.css';
 </style>
