@@ -16,11 +16,13 @@
 
 <script setup>
 import { useStore } from 'vuex';
+import { computed } from 'vue';
 
 const store = useStore();
 const sessions = store.state.sessions;
 const currentSessionId = store.state.currentSessionId;
-const session = sessions.find(session => session.id === currentSessionId);
+
+const session = computed(() => sessions.find(session => session.id === currentSessionId));
 // console.log(session);
     // filters: {
     //     // 将日期过滤为 hour:minutes

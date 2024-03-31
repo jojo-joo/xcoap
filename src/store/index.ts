@@ -48,12 +48,13 @@ mutations: {
     },
     // 发送消息
     SEND_MESSAGE ({ sessions, currentSessionId }, content) {
-        // let session = sessions.find(item => item.id === currentSessionId);
-        // session.messages.push({
-        //     content: content,
-        //     date: new Date(),
-        //     self: true
-        // });
+        let session = sessions.find(item => item.id === currentSessionId);
+        if (session) {
+            session.messages.push({
+                content: content,
+                date: new Date()
+            });
+        }
     },
     // 选择会话
     SELECT_SESSION (state, id) {
