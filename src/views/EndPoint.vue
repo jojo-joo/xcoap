@@ -1,19 +1,22 @@
 <template>
-  <el-container>
-    <el-aside width="300px">
-      <EndPointList />
-    </el-aside>
-    
-    <el-main>
-      <ChatList />
-    </el-main>
-  </el-container>
+  <el-aside class="side" width="200px">
+    <Card />
+    <List />
+  </el-aside>
+  <el-main>
+    <Message />
+    <Text />
+  </el-main>
 </template>
 
 <script setup>
-import EndPointList from '@/views/EndPointList.vue';
-import ChatList from '@/views/ChatList.vue';
+// import { actions } from './store';
+
+import Card from '@/components/card';
+import List from '@/components/list';
+import Text from '@/components/text';
+import Message from '@/components/message';
+
 </script>
 
-<style>
-</style>
+

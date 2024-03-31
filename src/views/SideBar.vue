@@ -33,7 +33,7 @@
     
     <router-link to="/settings" class="router-link-no-underline menu">
       <el-menu-item index="5">
-        <el-icon><Setting /></el-icon>
+        <el-icon class="iconfont icon-settings"/>
         <span>Settings</span>
       </el-menu-item>
     </router-link>
@@ -49,7 +49,6 @@
 
 <script setup>
 import { ref,defineExpose } from 'vue'
-import { Management, Setting,Connection } from '@element-plus/icons-vue'
 
  const isCollapse = ref(false)
 
