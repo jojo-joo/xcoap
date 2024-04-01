@@ -4,7 +4,7 @@
     <ul v-if="session">
       <li v-for="item in session.messages">
         <p class="time">
-          <span>{{ item.date | time }}</span>
+          <span>{{ timeFilter(item.date) }}</span>
         </p>
         <div class="main self">
           <div class="text">{{ item.content }}</div>
@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from 'vue'; 
+import { ref, watch, computed  } from 'vue'; 
 import { useStore } from 'vuex';
 
 const store = useStore();
@@ -27,17 +27,13 @@ watch(() => store.state.currentSessionId, (newValue) => {
   currentSessionId.value = newValue;
   session.value = sessions.value.find(s => s.id === currentSessionId.value);
 });
-//const session = computed(() => sessions.find(session => session.id === currentSessionId));
-// console.log(session);
-// filters: {
-//     // 将日期过滤为 hour:minutes
-//     time (date) {
-//         if (typeof date === 'string') {
-//             date = new Date(date);
-//         }
-//         return date.getHours() + ':' + date.getMinutes();
-//     }
-// },
+
+const timeFilter = computed(() => {
+  return (date) => {
+    return date.getHours() + ':' + date.getMinutes();
+  };
+});
+
 // directives: {
 //     // 发送消息后滚动到底部
 //     'scroll-bottom' () {
@@ -46,6 +42,7 @@ watch(() => store.state.currentSessionId, (newValue) => {
 //         });
 //     }
 // }
+
 </script>
 
 <style lang="less" scoped>
