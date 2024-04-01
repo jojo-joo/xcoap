@@ -1,56 +1,41 @@
-<template>
+<!-- <template>
   <div class="list">
     <ul>
       <li v-for="item in sessions" :class="{ active: item.id === currentId }" @click="selectSession(item.id)">
-        <!-- <img class="avatar" width="30" height="30" :alt="item.user.name" :src="item.user.img"> -->
+        <img class="avatar" width="30" height="30" :alt="item.user.name" :src="item.user.img">
         <p class="name">{{ item.user.name }}</p>
       </li>
     </ul>
   </div>
+</template> -->
+
+<template>
+  <el-input v-model="filterText" style="width: 190px; padding-left: 5px;" placeholder="Filter keyword" />
+  <el-tree 
+  style="max-width: 600px" 
+  :data="sessions" 
+  show-checkbox 
+  node-key="id" 
+  default-expand-all
+  :expand-on-click-node="false" 
+  @current-change="handleCurrentChange"/>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { useStore } from 'vuex';
 
 const store = useStore();
-
 const sessions = store.state.sessions;
 const currentId = store.state.currentSessionId;
 
-const selectSession = (id) => {
+const selectSession = (id: number) => {
   store.commit('SELECT_SESSION', id);
+}
+
+const handleCurrentChange = (node: any,) => {
+  console.log('Current node changed:', node.id);
+  selectSession(node.id);
 }
 </script>
 
-<style scoped lang="less">
-.list {
-  li {
-    padding: 12px 15px;
-    border-bottom: 1px solid #292C33;
-    cursor: pointer;
-    transition: background-color .1s;
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.03);
-    }
-
-    &.active {
-      background-color: rgba(255, 255, 255, 0.1);
-    }
-  }
-
-  .avatar,
-  .name {
-    vertical-align: middle;
-  }
-
-  .avatar {
-    border-radius: 2px;
-  }
-
-  .name {
-    display: inline-block;
-    margin: 0 0 0 15px;
-  }
-}
-</style>
+<style></style>

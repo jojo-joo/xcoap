@@ -1,6 +1,6 @@
 <template>
   <el-aside class="side" width="200px">
-    <Card />
+    <!-- <Card /> -->
     <List />
   </el-aside>
   <el-main>
