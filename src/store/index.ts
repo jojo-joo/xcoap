@@ -69,21 +69,4 @@ const store = createStore<SessionState>({
   }
 });
 
-store.watch(
-  (state) => state.sessions,
-  (val) => {
-      console.log('CHANGE: ', val);
-      localStorage.setItem('vue-chat-session', JSON.stringify(val));
-  },
-  {
-      deep: true
-  }
-);
-
 export default store;
-export const actions = {
-  initData: ({ dispatch }: { dispatch: Function }) => dispatch('INIT_DATA'),
-  sendMessage: ({ dispatch }: { dispatch: Function }, content: string) => dispatch('SEND_MESSAGE', content),
-  selectSession: ({ dispatch }: { dispatch: Function }, id: number) => dispatch('SELECT_SESSION', id),
-  search: ({ dispatch }: { dispatch: Function }, value: string) => dispatch('SET_FILTER_KEY', value)
-};

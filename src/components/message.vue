@@ -24,7 +24,6 @@ const currentSessionId = ref(store.state.currentSessionId);
 let session = ref(sessions.value.find(s => s.id === currentSessionId.value));
 
 watch(() => store.state.currentSessionId, (newValue) => {
-  console.log('message page: ' + newValue);
   currentSessionId.value = newValue;
   session.value = sessions.value.find(s => s.id === currentSessionId.value);
 });

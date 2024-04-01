@@ -3,9 +3,7 @@
     <el-aside width="140px">
       <SideBar />
     </el-aside>
-    <el-container>
-      <RouterView />
-    </el-container>
+    <RouterView />
   </el-container>
 </template>
 
