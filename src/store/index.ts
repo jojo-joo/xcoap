@@ -22,7 +22,7 @@ const store = createStore<SessionState>({
     sessions: [
       {
         id: 1,
-        label: '192.168.0.2',
+        label: '192.168.111.222',
         messages: [
           {
             content: 'Hello，这是一个基于Vue + Vuex + Webpack构建的简单chat示例，聊天记录保存在localStorge, 有什么问题可以通过Github Issue问我。',

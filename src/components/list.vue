@@ -10,7 +10,7 @@
 </template> -->
 
 <template>
-  <el-input v-model="filterText" style="width: 190px; padding-left: 5px;" placeholder="Filter keyword" />
+  <el-input v-model="filterText" style="width: 100%; padding: 5px;" placeholder="Filter keyword" />
   <el-tree 
   style="max-width: 600px" 
   :data="sessions" 

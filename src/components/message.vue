@@ -1,11 +1,12 @@
 <template>
   <div class="message" v-scroll-bottom="$store.state.sessions.messages">
-    <input v-model="currentSessionId"/>
     <ul v-if="session">
       <li v-for="item in session.messages">
-        <p class="time">
-          <span>{{ timeFilter(item.date) }}</span>
-        </p>
+        <p class="time"><span>{{ timeFilter(item.date) }}</span></p>
+        <div>
+          <div class="text">{{ item.content }}</div>
+        </div>
+        <p class="time"><span>{{ timeFilter(item.date) }}</span></p>
         <div class="main self">
           <div class="text">{{ item.content }}</div>
         </div>
@@ -14,7 +15,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import { ref, watch, computed  } from 'vue'; 
 import { useStore } from 'vuex';
 
@@ -30,7 +31,14 @@ watch(() => store.state.currentSessionId, (newValue) => {
 
 const timeFilter = computed(() => {
   return (date) => {
-    return date.getHours() + ':' + date.getMinutes();
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const seconds = String(date.getSeconds()).padStart(2, '0');
+
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
   };
 });
 
@@ -47,74 +55,63 @@ const timeFilter = computed(() => {
 
 <style lang="less" scoped>
 .message {
-  padding: 10px 15px;
-  overflow-y: scroll;
-
-  li {
-    margin-bottom: 15px;
-  }
-
-  .time {
-    margin: 7px 0;
-    text-align: center;
-
-    >span {
-      display: inline-block;
-      padding: 0 18px;
-      font-size: 12px;
-      color: #fff;
-      border-radius: 2px;
-      background-color: #dcdcdc;
+    padding: 10px 15px;
+    overflow-y: scroll;
+    background-color: #eee;
+    li {
+        margin-bottom: 15px;
+        list-style-type: none;
     }
-  }
+    .time {
+        margin: 7px 0;
+        text-align: center;
 
-  .avatar {
-    float: left;
-    margin: 0 10px 0 0;
-    border-radius: 3px;
-  }
-
-  .text {
-    display: inline-block;
-    position: relative;
-    padding: 0 10px;
-    max-width: ~'calc(100% - 40px)';
-    min-height: 30px;
-    line-height: 2.5;
-    font-size: 12px;
-    text-align: left;
-    word-break: break-all;
-    background-color: #fafafa;
-    border-radius: 4px;
-
-    &:before {
-      content: " ";
-      position: absolute;
-      top: 9px;
-      right: 100%;
-      border: 6px solid transparent;
-      border-right-color: #fafafa;
-    }
-  }
-
-  .self {
-    text-align: right;
-
-    .avatar {
-      float: right;
-      margin: 0 0 0 10px;
+        > span {
+            display: inline-block;
+            padding: 0 18px;
+            font-size: 12px;
+            color: #fff;
+            border-radius: 2px;
+            background-color: #dcdcdc;
+        }
     }
 
     .text {
-      background-color: #b2e281;
+        display: inline-block;
+        position: relative;
+        padding: 0 10px;
+        max-width: ~'calc(100% - 40px)';
+        min-height: 30px;
+        line-height: 2.5;
+        font-size: 12px;
+        text-align: left;
+        word-break: break-all;
+        background-color: #fafafa;
+        border-radius: 4px;
 
-      &:before {
-        right: inherit;
-        left: 100%;
-        border-right-color: transparent;
-        border-left-color: #b2e281;
-      }
+        &:before {
+            content: " ";
+            position: absolute;
+            top: 9px;
+            right: 100%;
+            border: 6px solid transparent;
+            border-right-color: #fafafa;
+        }
     }
-  }
+
+    .self {
+        text-align: right;
+
+        .text {
+            background-color: #b2e281;
+
+            &:before {
+                right: inherit;
+                left: 100%;
+                border-right-color: transparent;
+                border-left-color: #b2e281;
+            }
+        }
+    }
 }
 </style>
