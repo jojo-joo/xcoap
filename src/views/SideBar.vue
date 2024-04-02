@@ -59,7 +59,7 @@ defineExpose({
 
 <style scoped>
 .el-menu-vertical,.el-menu-vertical:not(.el-menu--collapse){
-  height: 100vh;
+  height: 98vh;
 }
 .titleName{
   font-size: 24px;

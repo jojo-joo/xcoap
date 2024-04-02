@@ -1,28 +1,72 @@
 <template>
-  <div class="message" v-scroll-bottom="$store.state.sessions.messages">
-    <ul v-if="session">
-      <li v-for="item in session.messages">
-        <p class="time"><span>{{ timeFilter(item.date) }}</span></p>
-        <div>
-          <div class="text">{{ item.content }}</div>
-        </div>
-        <p class="time"><span>{{ timeFilter(item.date) }}</span></p>
-        <div class="main self">
-          <div class="text">{{ item.content }}</div>
-        </div>
-      </li>
-    </ul>
-  </div>
+  <el-container style="background-color: #eee;">
+  <el-main style="padding: 0px;">
+    <el-scrollbar wrap-class="scrollbar-wrap" ref="scrollbarRef">
+      <div class="message">
+        <ul v-if="session">
+          <li v-for="item in session.messages">
+            <div>
+              <p class="time"><span>{{ timeFilter(item.date) }}</span></p>
+              <div class="text">{{ item.content }}</div>
+            </div>
+            <div class="self">
+              <p class="time"><span>{{ timeFilter(item.date) }}</span></p>
+              <div class="text">{{ item.content }}</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </el-scrollbar>
+  </el-main>
+  <el-footer height="160px" style="padding: 0px;">
+    <div class="text">
+      <textarea placeholder="Ctrl + Enter To Send" v-model="content" @keyup="onKeyup"></textarea>
+    </div>
+  </el-footer>
+</el-container>
 </template>
 
 <script setup>
-import { ref, watch, computed  } from 'vue'; 
+import { ref, watch, computed, nextTick, onMounted } from 'vue';
 import { useStore } from 'vuex';
+import { ElScrollbar } from 'element-plus';
+
+
+const content = ref('');
+
+const onKeyup = (event) => {
+  if (event.key === 'Enter' && event.ctrlKey) {
+    store.commit('SEND_MESSAGE', content.value);
+    nextTick(() => {
+      scrollToBottom();
+    });
+  }
+};
 
 const store = useStore();
 const sessions = ref(store.state.sessions);
 const currentSessionId = ref(store.state.currentSessionId);
 let session = ref(sessions.value.find(s => s.id === currentSessionId.value));
+
+const scrollbarRef = ref(null);
+
+const scrollToBottom = () => {
+  if (scrollbarRef.value) {
+    const containerEl = scrollbarRef.value.$el.querySelector('.el-scrollbar__wrap');
+    const bottomPosition = containerEl.scrollHeight - containerEl.clientHeight;
+    scrollbarRef.value.setScrollTop(bottomPosition);
+    console.log("scrollToBottom");
+  }
+
+};
+
+onMounted(() => {
+  scrollToBottom();
+});
+
+watch(() => store.state.sessions, (newValue) => {
+  scrollToBottom();
+});
 
 watch(() => store.state.currentSessionId, (newValue) => {
   currentSessionId.value = newValue;
@@ -42,76 +86,89 @@ const timeFilter = computed(() => {
   };
 });
 
-// directives: {
-//     // 发送消息后滚动到底部
-//     'scroll-bottom' () {
-//         this.vm.$nextTick(() => {
-//             this.el.scrollTop = this.el.scrollHeight - this.el.clientHeight;
-//         });
-//     }
-// }
-
 </script>
 
 <style lang="less" scoped>
-.message {
-    padding: 10px 15px;
-    overflow-y: scroll;
-    background-color: #eee;
-    li {
-        margin-bottom: 15px;
-        list-style-type: none;
-    }
-    .time {
-        margin: 7px 0;
-        text-align: center;
+.text {
+  height: 100%;
+  display: flex;
 
-        > span {
-            display: inline-block;
-            padding: 0 18px;
-            font-size: 12px;
-            color: #fff;
-            border-radius: 2px;
-            background-color: #dcdcdc;
-        }
+  textarea {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    resize: none;
+    overflow: hidden;
+  }
+}
+.message {
+  padding: 10px 15px;
+  overflow-y: none;
+  background-color: #eee;
+  font-size: 12px;
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 15px;
+    list-style-type: none;
+  }
+
+  .time {
+    margin: 7px 0;
+    text-align: left;
+
+    >span {
+      display: inline-block;
+      padding: 0 18px;
+      color: #fff;
+      border-radius: 2px;
+      background-color: #dcdcdc;
     }
+  }
+
+  .text {
+    display: inline-block;
+    position: relative;
+    padding: 0 10px;
+    max-width: ~'calc(100% - 40px)';
+    min-height: 30px;
+    line-height: 2.5;
+    text-align: left;
+    word-break: break-all;
+    background-color: #fafafa;
+    border-radius: 4px;
+
+    &:before {
+      content: " ";
+      position: absolute;
+      top: 9px;
+      right: 100%;
+      border: 6px solid transparent;
+      border-right-color: #fafafa;
+    }
+  }
+
+  .self {
+    .time {
+      text-align: right;
+    }
+
+    text-align: right;
 
     .text {
-        display: inline-block;
-        position: relative;
-        padding: 0 10px;
-        max-width: ~'calc(100% - 40px)';
-        min-height: 30px;
-        line-height: 2.5;
-        font-size: 12px;
-        text-align: left;
-        word-break: break-all;
-        background-color: #fafafa;
-        border-radius: 4px;
+      background-color: #b2e281;
 
-        &:before {
-            content: " ";
-            position: absolute;
-            top: 9px;
-            right: 100%;
-            border: 6px solid transparent;
-            border-right-color: #fafafa;
-        }
+      &:before {
+        right: inherit;
+        left: 100%;
+        border-right-color: transparent;
+        border-left-color: #b2e281;
+      }
     }
-
-    .self {
-        text-align: right;
-
-        .text {
-            background-color: #b2e281;
-
-            &:before {
-                right: inherit;
-                left: 100%;
-                border-right-color: transparent;
-                border-left-color: #b2e281;
-            }
-        }
-    }
+  }
 }
 </style>
