@@ -31,7 +31,6 @@ import { ref, watch, computed, nextTick, onMounted } from 'vue';
 import { useStore } from 'vuex';
 import { ElScrollbar } from 'element-plus';
 
-
 const content = ref('');
 
 const onKeyup = (event) => {
@@ -57,7 +56,6 @@ const scrollToBottom = () => {
     scrollbarRef.value.setScrollTop(bottomPosition);
     console.log("scrollToBottom");
   }
-
 };
 
 onMounted(() => {
