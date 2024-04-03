@@ -5,7 +5,7 @@
   >
     <router-link to="/" class="router-link-no-underline titleName">
       <el-menu-item index="1">
-        <el-icon><Management /></el-icon>
+        <el-icon><ElementPlus /></el-icon>
         <span>XCOAP</span>
       </el-menu-item>
     </router-link>
@@ -55,7 +55,7 @@
 </template>
 
 <script setup>
-import { Connection, Setting, Warning } from '@element-plus/icons-vue';
+import { Connection, ElementPlus, Setting, Warning } from '@element-plus/icons-vue';
 import { ref,defineExpose } from 'vue'
 
  const isCollapse = ref(false)
@@ -75,7 +75,6 @@ defineExpose({
 }
 .menu{
 font-size: 14px;
-
 }
 .router-link-no-underline {
   text-decoration: none;
