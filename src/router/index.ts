@@ -3,8 +3,9 @@ import EndPoint from '@/views/EndPoint.vue';
 import About from '@/views/About.vue';
 
 const routes: Array<RouteRecordRaw> = [
-  {path: '/endpoint', name: 'EndPoint', component: EndPoint},
-  {path: '/about', name: 'About', component: About},
+  { path: '/', redirect: '/endpoint' }, 
+  { path: '/endpoint', name: 'EndPoint', component: EndPoint},
+  { path: '/about', name: 'About', component: About},
 ];
 
 const router = createRouter({
