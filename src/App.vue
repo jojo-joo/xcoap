@@ -11,7 +11,3 @@
 <script setup>
 import SideBar from '@/views/SideBar.vue';
 </script>
-
-<style lang="scss">
-@import './assets/font/iconfont.css';
-</style>
