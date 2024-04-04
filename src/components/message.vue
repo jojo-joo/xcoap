@@ -1,5 +1,5 @@
 <template>
-  <el-container style="background-color: #eee;">
+  <el-container style="background-color: #eee; height:98vh;">
   <el-main style="padding: 0px;">
     <el-scrollbar wrap-class="scrollbar-wrap" ref="scrollbarRef">
       <div class="message">

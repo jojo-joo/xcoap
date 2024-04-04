@@ -3,28 +3,28 @@
     default-active="2"
     class="el-menu-vertical"
   >
-    <router-link to="/" class="router-link-no-underline titleName">
+    <router-link to="/endpoint/message" class="router-link-no-underline titleName">
       <el-menu-item index="1">
         <el-icon><ElementPlus /></el-icon>
         <span>XCOAP</span>
       </el-menu-item>
     </router-link>
 
-    <router-link to="/endpoint" class="router-link-no-underline menu">
+    <router-link to="/endpoint/message" class="router-link-no-underline menu">
       <el-menu-item index="2">
         <el-icon><Connection /></el-icon>
         <span>Endpoints</span>
       </el-menu-item>
     </router-link>
     
-    <router-link to="/add" class="router-link-no-underline menu">
+    <router-link to="/endpoint/add" class="router-link-no-underline menu">
       <el-menu-item index="23">
         <el-icon><Plus /></el-icon>
         <span>Add</span>
       </el-menu-item>
     </router-link>
 
-    <router-link to="/discovery" class="router-link-no-underline menu">
+    <router-link to="/endpoint/discovery" class="router-link-no-underline menu">
       <el-menu-item index="3">
         <el-icon><Search /></el-icon>
         <span>Discovery</span>

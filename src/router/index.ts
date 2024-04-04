@@ -3,8 +3,7 @@ import EndPoint from '@/views/EndPoint.vue';
 import About from '@/views/About.vue';
 
 const routes: Array<RouteRecordRaw> = [
-  { path: '/', redirect: '/endpoint' }, 
-  { path: '/endpoint', name: 'EndPoint', component: EndPoint},
+  { path: '/endpoint/:func', name: 'EndPoint', component: EndPoint},
   { path: '/about', name: 'About', component: About},
 ];
 
